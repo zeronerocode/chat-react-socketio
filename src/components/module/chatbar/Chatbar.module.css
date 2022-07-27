@@ -1,0 +1,38 @@
+.chatBarHeader {
+    display: flex;
+    padding: 28px;
+}
+
+.chatBarHeader ul {
+    padding-top: 5px;
+    list-style: none;
+}
+
+.chatBox {
+    background: #FAFAFA;
+    padding-top: 10px;
+    padding-right: 25px;
+}
+
+.chatBox ul {
+    list-style: none;
+}
+
+.chatFriend {
+    background: #7E98DF;
+    border-radius: 35px 35px 35px 10px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.myChat {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.myChat span {
+    background: #FFFFFF;
+    border-radius: 35px 10px 35px 35px;
+    padding: 10px;
+    margin-right: 10px;
+}

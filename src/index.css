@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.wrapper-chat{
+  height: 500px;
+  margin-top: 30px;
+ 
+}
+.scrool-buttom{
+  /* height: 100%; */
+  overflow: auto;
+  height: 500px;
+}
+.bg-green{
+  background-color: lightgreen;
+}
+.pointer{
+  cursor: pointer;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.list-group-item img {
+  margin-right: 10px;
+}

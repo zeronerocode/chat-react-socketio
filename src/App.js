@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import ChatRoom from './pages/ChatRoom'
+import Login from './pages/auth/Login'
+import io from "socket.io-client";
+import Register from './pages/auth/Register';
+import Chat from './pages/chat';
 
-function App() {
+
+const App = () => {
+  const [socket, setSocket] = useState(null)
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    if(!socket && token){
+      const resultSocket = io("http://localhost:4000", {
+        query: {
+          token: token
+        }
+      })
+      setSocket(resultSocket)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+    <Routes>
+      <Route path="/login" element={<Login setSocket={setSocket}/>}/>
+      <Route path="/room" element={<ChatRoom socket={socket} />}/>
+      <Route path="/register" element={<Register/>}/>
+      <Route path='/chat' element={<Chat socket={socket}/>}/>
+    </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

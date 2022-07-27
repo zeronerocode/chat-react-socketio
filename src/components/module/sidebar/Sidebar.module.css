@@ -1,0 +1,15 @@
+.sideHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    font-size: 29px;
+    color: #7E98DF;
+}
+
+.friendList {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
