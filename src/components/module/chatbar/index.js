@@ -1,7 +1,11 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+import React, {useState} from 'react'
 import styles from './Chatbar.module.css'
 
-const ChatBar = () => {
+const ChatBar = (props) => {
+    console.log(props);
+    const [friend, setFriend] = useState({});
+
     return (
         <div>
             <div className={styles.chatBarHeader}>

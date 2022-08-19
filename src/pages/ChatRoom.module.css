@@ -3,5 +3,73 @@
     justify-content: space-between;
     padding: 30px;
     font-size: 29px;
+}
+
+.sideHeader h1 {
     color: #7E98DF;
+}
+
+.chatBarHeader {
+    display: flex;
+    padding: 28px;
+}
+
+.chatBarHeader ul {
+    padding-top: 5px;
+    list-style: none;
+}
+
+.chatBox {
+    background: #FAFAFA;
+    padding-top: 10px;
+    padding-right: 25px;
+    height: 500px;
+}
+
+.chatBox ul {
+    list-style: none;
+}
+
+.chatFriend {
+    background: #7E98DF;
+    border-radius: 35px 35px 35px 10px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.myChat {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.myChat span {
+    background: #FFFFFF;
+    border-radius: 35px 10px 35px 35px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.optionMenu {
+    position: absolute;
+    padding-left: 30px;
+    margin-top: 35px;
+    padding-top: 30px;
+    margin-left: 100px;
+    padding-bottom: 20px;
+    width: 250px;
+    background: #7E98DF;
+    border-radius: 35px 10px 35px 35px;
+    z-index: 1;
+}
+
+.optionMenu p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.165px;
+    color: #FFFFFF;
+    margin-left: 30px;
+    cursor: pointer;
 }

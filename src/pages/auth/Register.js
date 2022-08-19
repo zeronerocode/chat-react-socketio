@@ -4,26 +4,28 @@ import io from "socket.io-client";
 import styles from "./Auth.module.css"
 import Input from "../../components/base/Input"
 import Button from "../../components/base/Button"
+import Swal from "sweetalert2";
 
 import { useNavigate } from "react-router-dom";
 
 function Register({ setSocket }) {
-  const [formLogin, setFormLogin] = useState({
+  const [formRegister, setFormRegister] = useState({
     email: "",
     password: "",
+    fullname:""
   });
   const navigate = useNavigate();
   const handleChange = (e) => {
-    setFormLogin({
-      ...formLogin,
+    setFormRegister({
+      ...formRegister,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleLogin = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/v1/users/login", formLogin)
+      .post("http://localhost:4000/v1/users/register", formRegister)
       .then((res) => {
         const respData = res.data.data;
         localStorage.setItem("token", respData.token);
@@ -34,10 +36,22 @@ function Register({ setSocket }) {
           }
         });
         setSocket(resultSocket);
-        navigate('/room')
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Register Success',
+          showConfirmButton: false,
+        })
+        navigate('/login')
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Register Error',
+          showConfirmButton: false,
+        })
       });
   };
   return (
@@ -45,14 +59,14 @@ function Register({ setSocket }) {
       <div className={styles.formWrapper}>
         <h1 className={styles.logo}>Register</h1>
         <p>Let’s create your account!</p>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleRegister}>
         <label htmlFor="name" className="form-label">Name</label>
           <Input
             type={"text"}
             name={"fullname"}
             id={"name"}
             placeholder={"fullname"}
-            value={formLogin.email}
+            value={formRegister.fullname}
             onChange={handleChange}
           />
           <label htmlFor="email" className="form-label">Email</label>
@@ -61,7 +75,7 @@ function Register({ setSocket }) {
             name={"email"}
             id={"email"}
             placeholder={"email"}
-            value={formLogin.email}
+            value={formRegister.email}
             onChange={handleChange}
           />
           <label htmlFor="password" className="form-label">Password</label>
@@ -70,15 +84,12 @@ function Register({ setSocket }) {
             name={"password"}
             id="password"
             placeholder={"password"}
-            value={formLogin.password}
+            value={formRegister.password}
             onChange={handleChange}
           />
           <a href="/">Forgot password?</a>
-          <Button type={"submit"}>Login</Button>
+          <Button type={"submit"}>Register</Button>
         </form>
-        <p className="mt-3 text-center">Don’t have an account ?
-          <a href="/"> Sign Up</a>
-        </p>
       </div>
     </div>
   );

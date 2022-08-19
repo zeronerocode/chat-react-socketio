@@ -4,8 +4,9 @@ import io from "socket.io-client";
 import styles from "./Auth.module.css"
 import Input from "../../components/base/Input"
 import Button from "../../components/base/Button"
+import Swal from "sweetalert2";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login({ setSocket }) {
   const [formLogin, setFormLogin] = useState({
@@ -23,7 +24,7 @@ function Login({ setSocket }) {
   const handleLogin = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/v1/users/login", formLogin)
+      .post(`${process.env.BASE_URL}v1/users/login`, formLogin)
       .then((res) => {
         const respData = res.data.data;
         localStorage.setItem("token", respData.token);
@@ -34,10 +35,22 @@ function Login({ setSocket }) {
           }
         });
         setSocket(resultSocket);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Logged In',
+          showConfirmButton: false,
+        })
         navigate('/room')
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Wrong Email or Password',
+          showConfirmButton: false,
+        })
       });
   };
   return (
@@ -68,7 +81,7 @@ function Login({ setSocket }) {
           <Button type={"submit"}>Login</Button>
         </form>
         <p className="mt-3 text-center">Don’t have an account ?
-          <a href="/"> Sign Up</a>
+          <Link to="/register"> Sign Up</Link>
         </p>
       </div>
     </div>

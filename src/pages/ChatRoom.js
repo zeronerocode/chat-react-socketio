@@ -1,49 +1,60 @@
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import ScrollToBottom from "react-scroll-to-bottom";
-import styles from "./ChatRoom.module.css"
-import { FaList } from "react-icons/fa";
+// import ScrollToBottom from "react-scroll-to-bottom";
+import styles from "./ChatRoom.module.css";
+import { useNavigate } from "react-router";
+import { FaList, FaPowerOff } from "react-icons/fa";
+import { BsGearFill } from "react-icons/bs";
 const ChatRoom = ({ socket }) => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [friends, setFriends] = useState([]);
   const [friend, setFriend] = useState({});
 
+  const [createOption, setcreateOption] = useState(false);
+  const [setting, setSetting] = useState(false);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    axios.get("http://localhost:4000/v1/users/", {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    }).then((res) => {
-      const users = res.data.data;
-      setFriends(users);
-    });
+    const token = localStorage.getItem("token");
+    axios
+      .get(`${process.env.BASE_URL}v1/users/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        const users = res.data.data;
+        setFriends(users);
+      });
   }, []);
 
   useEffect(() => {
     if (socket) {
-      socket.off('newMessage')
-      socket.on('newMessage', (message) => {
-        setMessages((current) => [...current, message])
+      socket.off("newMessage");
+      socket.on("newMessage", (message) => {
+        setMessages((current) => [...current, message]);
         console.log(message);
-      })
+      });
     }
-
-  }, [socket])
+  }, [socket]);
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    axios.get(`http://localhost:4000/v1/messages/${friend.id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    }).then((res) => {
-      const messages = res.data.data;
-      setMessages(messages);
-    });
-  }, [friend])
-
+    const token = localStorage.getItem("token");
+    axios
+      .get(`${process.env.BASE_URL}v1/messages/${friend.id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log("res =>", res);
+        const messages = res.data.data;
+        setMessages(messages);
+      });
+  }, [friend]);
 
   const handleSendMessage = () => {
     if (socket && message) {
@@ -58,42 +69,116 @@ const ChatRoom = ({ socket }) => {
         }
       );
     }
-    setMessage('')
+    setMessage("");
   };
   const chooseFriend = (friend) => {
-    setFriend(friend)
-  }
+    setFriend(friend);
+  };
+
+  const handleOptionMenu = () => {
+    console.log("jalan");
+    setcreateOption(!createOption);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
+  const handleSetting = () => {
+    setSetting(true);
+  };
   return (
-    <div >
+    <div>
       <div className="row">
         <div className="col-md-4">
           <div className={styles.sideHeader}>
             <h1>Telegram</h1>
-            <span><FaList /></span>
+            <span>
+              <FaList onClick={handleOptionMenu} />
+            </span>
+            {createOption === true ? (
+              <div className={styles.optionMenu}>
+                <div className="d-flex mb-4" onClick={handleSetting}>
+                  <BsGearFill className="text-white"/>
+                  <p>Setting</p>
+                </div>
+                <div className="d-flex " onClick={handleLogout}>
+                  <FaPowerOff className="text-white" />
+                  <p>Logout</p>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
           <ul className="list-group">
             {friends.map((item) => (
-              <li className="list-group-item pointer" onClick={() => chooseFriend(item)}>
-                <img src='/img/photo.png' alt='phptp' />
+              <li
+                className="list-group-item pointer"
+                onClick={() => chooseFriend(item)}
+              >
+                <img src="/img/photo.png" alt="phptp" />
                 {item.fullname}
               </li>
             ))}
           </ul>
         </div>
         <div className="col-md-8">
-          <div className="wrapper-chat">
-            <ul className="list-group">
+          <div className="">
+            <div className={styles.chatBarHeader}>
+              {friend.fullname ? (
+                <>
+                  <img src="/img/photo.png" alt="phptp" />
+                  <span>
+                    <ul>
+                      <li>{friend.fullname}</li>
+                      <li>online</li>
+                    </ul>
+                  </span>
+                </>
+              ) : (
+                "pilih teman"
+              )}
+            </div>
+            <div className={styles.chatBox}>
+              {messages.map((item) =>
+                item.receiver_id === friend.id ? (
+                  <ul>
+                    <li>
+                      <span className={styles.chatFriend}>
+                        {item.message} - {item.date}
+                      </span>
+                    </li>
+                  </ul>
+                ) : (
+                  <ul>
+                    <li className={styles.myChat}>
+                      {item.date}
+                      <span>{item.message}</span>
+                    </li>
+                  </ul>
+                )
+              )}
+            </div>
+            {/* <ul className="list-group">
               <ScrollToBottom className="scrool-buttom">
-                <li class="list-group-item active" aria-current="true">{friend.fullname ? friend.fullname : 'pilih teman'}</li>
+                <li class="list-group-item active" aria-current="true">
+                  {friend.fullname ? friend.fullname : "pilih teman"}
+                </li>
                 {messages.map((item) => (
-                  <li className={`list-group-item ${item.receiver_id === friend.id ? 'bg-green' : ''}`}>
+                  <li
+                    className={`list-group-item ${
+                      item.receiver_id === friend.id ? "bg-green" : ""
+                    }`}
+                  >
                     <p>
-                      {item.message} - {item.created_at}
+                      {item.message} - {item.date}
                     </p>
                   </li>
                 ))}
               </ScrollToBottom>
-            </ul>
+            </ul> */}
           </div>
           <div className="input-group mb-3">
             <input

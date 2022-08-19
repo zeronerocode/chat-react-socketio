@@ -24,6 +24,7 @@ const App = () => {
   return (
     <BrowserRouter>
     <Routes>
+      <Route path="/" element={<Login setSocket={setSocket}/>}/>
       <Route path="/login" element={<Login setSocket={setSocket}/>}/>
       <Route path="/room" element={<ChatRoom socket={socket} />}/>
       <Route path="/register" element={<Register/>}/>
