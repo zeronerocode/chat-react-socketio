@@ -1,4 +1,4 @@
-<h1 align="center">ZeroStore</h1>
+<h1 align="center">Telegram</h1>
 
 <p align="center">
 </p>
