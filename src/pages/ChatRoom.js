@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 // import ScrollToBottom from "react-scroll-to-bottom";
@@ -20,7 +19,7 @@ const ChatRoom = ({ socket }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(`${process.env.BASE_URL}v1/users/`, {
+      .get("http://localhost:4000/v1/users/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -44,7 +43,7 @@ const ChatRoom = ({ socket }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(`${process.env.BASE_URL}v1/messages/${friend.id}`, {
+      .get(`http://localhost:4000/v1/messages/${friend.id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

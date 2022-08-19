@@ -24,7 +24,7 @@ function Login({ setSocket }) {
   const handleLogin = (e) => {
     e.preventDefault();
     axios
-      .post(`${process.env.BASE_URL}v1/users/login`, formLogin)
+      .post("http://localhost:4000/v1/users/login", formLogin)
       .then((res) => {
         const respData = res.data.data;
         localStorage.setItem("token", respData.token);

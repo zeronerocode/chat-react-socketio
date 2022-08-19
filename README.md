@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+<h1 align="center">ZeroStore</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+</p>
+<p align="center">
+  Zerostore is an E-Commerce that provides a variety of goods for your needs, Zerostore offers goods with the best quality and affordable prices
+</p>
 
-## Available Scripts
+## About
+![Lines of code](https://img.shields.io/tokei/lines/github/zeronerocode/zeroshopreact?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/zeronerocode/zeroshopreact?style=for-the-badge)
+![GitHub Discussions](https://img.shields.io/github/discussions/zeronerocode/zeroshopreact?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/zeronerocode/zeroshopreact?style=for-the-badge)
 
-In the project directory, you can run:
+## Dependencies
+- [React Js](https://(https://reactjs.org)/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [Bootstrap](https://www.npmjs.com/package/bootstrap)
+- [Sweetalert](https://www.npmjs.com/package/sweetalert)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [Redux](https://www.npmjs.com/package/redux)
+- [React-redux](https://www.npmjs.com/package/react-redux)
+- [Redux-logger](https://www.npmjs.com/package/redux-logger)
+- [Redux-thunk](https://www.npmjs.com/search?q=redux-thunk)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How To Install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Clone
+```
+git clone https://github.com/zeronerocode/zeroshopreact.git
+```
 
-### `npm test`
+- Install Module
+```
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Run Project
+```
+npm run start
+```
 
-### `npm run build`
+### Build Project
+```
+npm run build
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshot
+| Login Page | Register Page |
+| ------------- | ------------- |
+| ![Login](/public/screenshoot/chat-login.png?raw=true "Login Page") | ![Register](/public/screenshot/chat-register.png?raw=true "Register Page")|
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Related Project
 
-### `npm run eject`
+:rocket: [`Backend Telegram`](https://github.com/zeronerocode/TeleApp)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+:rocket: [`Frontend Telegram`](https://github.com/zeronerocode/chat-react-socketio)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+:rocket: [`Web Service`](https://zerhoshop-server.herokuapp.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+:rocket: [`Demo Telegram`](https://chat-react-socketio-seven.vercel.app/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
