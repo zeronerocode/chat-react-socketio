@@ -7,10 +7,10 @@
 </p>
 
 ## About
-![Lines of code](https://img.shields.io/tokei/lines/github/zeronerocode/zeroshopreact?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/zeronerocode/zeroshopreact?style=for-the-badge)
-![GitHub Discussions](https://img.shields.io/github/discussions/zeronerocode/zeroshopreact?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/zeronerocode/zeroshopreact?style=for-the-badge)
+![Lines of code](https://img.shields.io/tokei/lines/github/zeronerocode/chat-react-socketio?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/zeronerocode/chat-react-socketio?style=for-the-badge)
+![GitHub Discussions](https://img.shields.io/github/discussions/zeronerocode/chat-react-socketio?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/zeronerocode/chat-react-socketio?style=for-the-badge)
 
 ## Dependencies
 - [React Js](https://(https://reactjs.org)/)
@@ -28,7 +28,7 @@
 
 - Clone
 ```
-git clone https://github.com/zeronerocode/zeroshopreact.git
+git clone https://github.com/zeronerocode/chat-react-socketio.git
 ```
 
 - Install Module
