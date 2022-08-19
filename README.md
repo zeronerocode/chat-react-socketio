@@ -3,7 +3,7 @@
 <p align="center">
 </p>
 <p align="center">
-  Zerostore is an E-Commerce that provides a variety of goods for your needs, Zerostore offers goods with the best quality and affordable prices
+  Telegram is a realtime chat application that allows users to send messages to each other and can start chats in a group
 </p>
 
 ## About
@@ -49,7 +49,7 @@ npm run build
 ## Screenshot
 | Login Page | Register Page |
 | ------------- | ------------- |
-| ![Login](/public/screenshoot/chat-login.png?raw=true "Login Page") | ![Register](/public/screenshot/chat-register.png?raw=true "Register Page")|
+| ![Login](/public/screenshoot/chat-login.png?raw=true "Login Page") | ![Register](/public/screenshoot/chat-register.png?raw=true "Register Page")|
 
 
 ## Related Project
