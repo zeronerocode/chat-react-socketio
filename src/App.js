@@ -5,6 +5,7 @@ import Login from './pages/auth/Login'
 import io from "socket.io-client";
 import Register from './pages/auth/Register';
 import Chat from './pages/chat';
+import Profile from './pages/profile'
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
       <Route path="/room" element={<ChatRoom socket={socket} />}/>
       <Route path="/register" element={<Register/>}/>
       <Route path='/chat' element={<Chat socket={socket}/>}/>
+      <Route path='/profile' element={<Profile socket={socket}/>} />
     </Routes>
     </BrowserRouter>
   )

@@ -49,7 +49,6 @@ const ChatRoom = ({ socket }) => {
         },
       })
       .then((res) => {
-        console.log("res =>", res);
         const messages = res.data.data;
         setMessages(messages);
       });
@@ -75,7 +74,6 @@ const ChatRoom = ({ socket }) => {
   };
 
   const handleOptionMenu = () => {
-    console.log("jalan");
     setcreateOption(!createOption);
   };
 
@@ -85,7 +83,7 @@ const ChatRoom = ({ socket }) => {
   };
 
   const handleSetting = () => {
-    setSetting(true);
+    navigate('/profile')
   };
   return (
     <div>
@@ -160,24 +158,6 @@ const ChatRoom = ({ socket }) => {
                 )
               )}
             </div>
-            {/* <ul className="list-group">
-              <ScrollToBottom className="scrool-buttom">
-                <li class="list-group-item active" aria-current="true">
-                  {friend.fullname ? friend.fullname : "pilih teman"}
-                </li>
-                {messages.map((item) => (
-                  <li
-                    className={`list-group-item ${
-                      item.receiver_id === friend.id ? "bg-green" : ""
-                    }`}
-                  >
-                    <p>
-                      {item.message} - {item.date}
-                    </p>
-                  </li>
-                ))}
-              </ScrollToBottom>
-            </ul> */}
           </div>
           <div className="input-group mb-3">
             <input
