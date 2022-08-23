@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import style from "./profile.module.css";
@@ -35,7 +36,6 @@ const Profile = () => {
   useEffect(() => {
     fetchUser();
   }, []);
-  console.log('profile =>',Profile);
 
   return (
     <div className={style.profile}>
@@ -78,7 +78,7 @@ const Profile = () => {
               type="text"
               id="phone"
               name="phone"
-              defaultValue={""}
+              defaultValue={Profile.phone ? Profile.phone : ''}
               onChange={""}
               placeholder={"insert your phone number"}
             />

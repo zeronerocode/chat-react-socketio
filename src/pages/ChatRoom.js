@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 // import ScrollToBottom from "react-scroll-to-bottom";
@@ -12,7 +13,6 @@ const ChatRoom = ({ socket }) => {
   const [friend, setFriend] = useState({});
 
   const [createOption, setcreateOption] = useState(false);
-  const [setting, setSetting] = useState(false);
 
   const navigate = useNavigate();
 
@@ -115,7 +115,7 @@ const ChatRoom = ({ socket }) => {
                 className="list-group-item pointer"
                 onClick={() => chooseFriend(item)}
               >
-                <img src="/img/photo.png" alt="phptp" />
+                <img src={item.photo ? item.photo : '/img/photo.png'} alt="phptp" />
                 {item.fullname}
               </li>
             ))}
@@ -126,7 +126,7 @@ const ChatRoom = ({ socket }) => {
             <div className={styles.chatBarHeader}>
               {friend.fullname ? (
                 <>
-                  <img src="/img/photo.png" alt="phptp" />
+                  <img src={friend.photo ? friend.photo : '/img/photo.png'} alt="phptp" />
                   <span>
                     <ul>
                       <li>{friend.fullname}</li>
