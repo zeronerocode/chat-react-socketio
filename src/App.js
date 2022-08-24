@@ -13,7 +13,7 @@ const App = () => {
   useEffect(()=>{
     const token = localStorage.getItem('token')
     if(!socket && token){
-      const resultSocket = io("http://localhost:4000", {
+      const resultSocket = io(`${process.env.REACT_APP_API_BACKEND}`, {
         query: {
           token: token
         }

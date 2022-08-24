@@ -24,12 +24,12 @@ function Login({ setSocket }) {
   const handleLogin = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/v1/users/login", formLogin)
+      .post(`${process.env.REACT_APP_API_BACKEND}/v1/users/login`, formLogin)
       .then((res) => {
         const respData = res.data.data;
         localStorage.setItem("token", respData.token);
         localStorage.setItem("refreshToken", respData.refreshToken);
-        const resultSocket = io("http://localhost:4000", {
+        const resultSocket = io(`${process.env.REACT_APP_API_BACKEND}`, {
           query: {
             token: respData.token
           }

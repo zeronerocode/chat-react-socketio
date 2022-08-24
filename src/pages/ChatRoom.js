@@ -19,7 +19,7 @@ const ChatRoom = ({ socket }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:4000/v1/users/", {
+      .get(`${process.env.REACT_APP_API_BACKEND}/v1/users/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -43,7 +43,7 @@ const ChatRoom = ({ socket }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(`http://localhost:4000/v1/messages/${friend.id}`, {
+      .get(`${process.env.REACT_APP_API_BACKEND}/v1/messages/${friend.id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
