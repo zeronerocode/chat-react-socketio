@@ -48,7 +48,7 @@ function Register({ setSocket }) {
         console.log(err);
         Swal.fire({
           position: 'top-end',
-          icon: 'success',
+          icon: 'error',
           title: 'Register Error',
           showConfirmButton: false,
         })
