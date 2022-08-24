@@ -51,7 +51,7 @@ npm run build
 | ------------- | ------------- |
 | ![Login](/public/screenshoot/chat-login.png?raw=true "Login Page") | ![Register](/public/screenshoot/chat-register.png?raw=true "Register Page")|
 | Home Page | Profile Page |
-| ![Login](/public/screenshoot/chat-login.png?raw=true "Login Page") | ![Register](/public/screenshoot/chat-profile.png?raw=true "Profile Page")|
+| ![Homw](/public/screenshoot/chat-home.png?raw=true "Home Page") | ![Profile](/public/screenshoot/chat-profile.png?raw=true "Profile Page")|
 
 
 ## Related Project
