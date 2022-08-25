@@ -15,7 +15,7 @@ const Profile = () => {
       const authToken = localStorage.getItem("token");
       console.log('authToken =>', authToken);
     try {
-      const result = await axios.get(`http://localhost:4000/v1/users/profile`, {
+      const result = await axios.get(`https://telechatapp.herokuapp.com/v1/users/profile`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -36,6 +36,15 @@ const Profile = () => {
   useEffect(() => {
     fetchUser();
   }, []);
+
+  const updateProfile = () => {
+    Swal({
+      title: "Success!",
+      text: `Update Profile Success`,
+      icon: "success",
+    });
+    navigate('/room')
+  }
 
   return (
     <div className={style.profile}>
@@ -86,7 +95,7 @@ const Profile = () => {
           <Button
             type={"button"}
             className={`${style.update_btn}`}
-            onClick={""}
+            onClick={updateProfile}
           >
             {" "}
             Update

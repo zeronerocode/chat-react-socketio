@@ -19,7 +19,7 @@ const ChatRoom = ({ socket }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(`${process.env.REACT_APP_API_BACKEND}/v1/users/`, {
+      .get(`https://telechatapp.herokuapp.com/v1/users/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -43,7 +43,7 @@ const ChatRoom = ({ socket }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(`${process.env.REACT_APP_API_BACKEND}/v1/messages/${friend.id}`, {
+      .get(`https://telechatapp.herokuapp.com/v1/messages/${friend.id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
