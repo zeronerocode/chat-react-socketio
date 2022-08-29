@@ -58,7 +58,7 @@ const Profile = () => {
     formData.append("photo", Profile.file_photo);
     const authToken = localStorage.getItem("token");
     axios
-      .put(`https://telechatapp.herokuapp.com/v1/users/profile`, formData, {
+      .put(`https://telechatapp.herokuapp.com/v1/users/update-image`, formData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         }
