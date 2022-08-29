@@ -52,17 +52,21 @@ const Profile = () => {
   const updateProfile = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name", Profile.name);
+    formData.append("name", Profile.fullname);
     formData.append("email", Profile.email);
-    formData.append("id", Profile.id);;
+    formData.append("id", Profile.id);
     formData.append("photo", Profile.file_photo);
     const authToken = localStorage.getItem("token");
     axios
-      .put(`https://telechatapp.herokuapp.com/v1/users/update-image`, formData, {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
+      .put(
+        `https://telechatapp.herokuapp.com/v1/users/update-image`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
-      })
+      )
       .then(() => {
         navigate("/room");
         Swal({
@@ -71,7 +75,13 @@ const Profile = () => {
           icon: "success",
         });
       })
-      .catch(() => alert("error"));
+      .catch(() =>
+        Swal({
+          title: "Error!",
+          text: `Update Profile Failed`,
+          icon: "error",
+        })
+      );
   };
 
   return (
