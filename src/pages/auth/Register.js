@@ -25,12 +25,12 @@ function Register({ setSocket }) {
   const handleRegister = (e) => {
     e.preventDefault();
     axios
-      .post(`${process.env.REACT_APP_API_BACKEND}/v1/users/register`, formRegister)
+      .post(`https://telechatapp.herokuapp.com/v1/users/register`, formRegister)
       .then((res) => {
         const respData = res.data.data;
         localStorage.setItem("token", respData.token);
         localStorage.setItem("refreshToken", respData.refreshToken);
-        const resultSocket = io(`${process.env.REACT_APP_API_BACKEND}`, {
+        const resultSocket = io(`https://telechatapp.herokuapp.com`, {
           query: {
             token: respData.token
           }
